@@ -1,5 +1,10 @@
 import React from "react";
-import { FormControlLabel, makeStyles, Switch } from "@material-ui/core";
+import {
+  FormControlLabel,
+  makeStyles,
+  Switch,
+  Tooltip,
+} from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   switch: {
@@ -13,19 +18,20 @@ const useStyles = makeStyles((theme) => ({
 const MaterialSwitch = (props) => {
   const classes = useStyles();
   return (
-    <FormControlLabel
-      className={classes.switch}
-      control={
-        <Switch
-          size={props.size}
-          checked={props.checked}
-          onChange={props.onChange}
-          name={props.name}
-        />
-      }
-      title={props.title}
-      label={props.label}
-    />
+    <Tooltip title={props.title ? props.title : ""}>
+      <FormControlLabel
+        className={classes.switch}
+        control={
+          <Switch
+            size={props.size}
+            checked={props.checked}
+            onChange={props.onChange}
+            name={props.name}
+          />
+        }
+        label={props.label}
+      />
+    </Tooltip>
   );
 };
 

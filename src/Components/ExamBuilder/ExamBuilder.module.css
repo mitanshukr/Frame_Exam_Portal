@@ -5,7 +5,7 @@
   padding: 20px 18px;
   box-sizing: border-box;
   justify-content: center;
-  background: linear-gradient(rgb(222, 252, 253), rgb(197, 255, 252));
+  background: linear-gradient(to bottom right, rgb(240, 255, 255), rgb(130, 255, 249));
 }
 
 /* .main > * {

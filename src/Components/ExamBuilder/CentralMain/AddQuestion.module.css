@@ -1,0 +1,49 @@
+.staticCard {
+  border: 5px solid rgb(218, 218, 218);
+  border-radius: 10px;
+  border-style: dashed;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.staticCard > * {
+  color: rgb(218, 218, 218);
+  transition: all 0.2s ease-in-out;
+}
+
+.staticCard:hover {
+  border-color: rgb(172, 172, 172);
+  transition: all 0.2s ease-in-out;
+}
+
+.staticCard:hover > * {
+  color: rgb(172, 172, 172);
+  border-color: rgb(172, 172, 172);
+  transition: all 0.2s ease-in-out;
+}
+
+.staticCard__icon {
+  transform: scale(3);
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.staticCard__content {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.staticCard:hover .staticCard__icon {
+  transform: scale(3.1);
+}
+
+.staticCard:hover .staticCard__content {
+  transform: scale(1.01);
+}

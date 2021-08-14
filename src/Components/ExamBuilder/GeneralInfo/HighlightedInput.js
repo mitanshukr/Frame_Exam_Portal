@@ -1,3 +1,5 @@
+import { Tooltip } from "@material-ui/core";
+
 const HighlightedInput = (props) => {
   return (
     <div>
@@ -5,8 +7,9 @@ const HighlightedInput = (props) => {
           fontFamily: "Arial",
       }}>
         {props.label}
+        <Tooltip title={props.title ? props.title : ""}>
         <input
-          title={props.title}
+          
           type="text"
           name={props.name}
           value={props.value}
@@ -30,6 +33,7 @@ const HighlightedInput = (props) => {
             textAlign: "center",
           }}
         />
+        </Tooltip>
         <span style={{fontWeight: "bold"}}>{props.suffix}</span>
       </label>
     </div>

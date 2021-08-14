@@ -6,7 +6,7 @@ import Card from "../../UI/Card";
 
 const Accessibilities = () => {
   return (
-    <Card title="Accessibilities" style={{ height: "260px" }}>
+    <Card title="Accessibilities" style={{ height: "220px" }}>
       <DeviceAccess />
       <hr />
       <PasswordAccess />
