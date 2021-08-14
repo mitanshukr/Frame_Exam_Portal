@@ -1,9 +1,6 @@
 import React from "react";
-import AddCircleOutlineOutlinedIcon from "@material-ui/icons/AddCircleOutlineOutlined";
-import PostAddOutlinedIcon from "@material-ui/icons/PostAddOutlined";
 import { Menu, MenuItem } from "@material-ui/core";
 
-import classes from "./AddQuestion.module.css";
 import NestedMenuItem from "material-ui-nested-menu-item";
 
 const initialState = {
@@ -11,14 +8,15 @@ const initialState = {
   mouseY: null,
 };
 
-const AddQuestion = (props) => {
+const AddQuestionMenu = (props) => {
   const [state, setState] = React.useState(initialState);
+  const elemId = "simple-menu-" + Math.random();
 
   const handleClick = (event) => {
     event.preventDefault();
     setState({
       mouseX: event.clientX - 2,
-      mouseY: event.clientY - 4,
+      mouseY: event.clientY + 5,
     });
   };
 
@@ -27,21 +25,10 @@ const AddQuestion = (props) => {
   };
 
   return (
-    <div>
-      <div
-        aria-controls="simple-menu"
-        aria-haspopup="true"
-        onClick={handleClick}
-        className={classes.staticCard}
-      >
-        <AddCircleOutlineOutlinedIcon className={classes.staticCard__icon} />
-        {/* <PostAddOutlinedIcon className={classes.staticCard__icon}/> */}
-        <div className={classes.staticCard__content}>
-          <p>Click here to Add Question</p>
-        </div>
-      </div>
+    <div aria-controls={elemId} aria-haspopup="true">
+      <span onClick={handleClick}>{props.children}</span>
       <Menu
-        id="simple-menu"
+        id={elemId}
         keepMounted
         open={state.mouseY !== null}
         onClose={handleClose}
@@ -53,8 +40,9 @@ const AddQuestion = (props) => {
         }
       >
         <NestedMenuItem
+          keepMounted
           label="MCQ Type"
-          parentMenuOpen={state.mouseX ? true : false}
+          parentMenuOpen={!!state.mouseX}
         >
           <MenuItem onClick={handleClose}>Single Correct</MenuItem>
           <MenuItem onClick={handleClose}>Multiple Correct</MenuItem>
@@ -66,4 +54,4 @@ const AddQuestion = (props) => {
   );
 };
 
-export default AddQuestion;
+export default AddQuestionMenu;

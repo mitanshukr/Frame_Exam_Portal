@@ -1,12 +1,20 @@
-
-
 import Card from "../../UI/Card";
-import AddQuestion from "./AddQuestion";
+import AddQuestionCard from "./AddQuestionCard";
+import CentralMenu from "./CentralMenu";
 
 const CentralMain = () => {
   return (
-    <Card style={{ flex: 1, height: "500px" }}>
-      <AddQuestion />
+    <Card
+      style={{
+        flex: 1,
+        height: "500px",
+        position: "relative",
+        paddingTop: "65px",
+      }}
+    >
+      <CentralMenu />
+      {/* Added Questions */}
+      <AddQuestionCard />
     </Card>
   );
 };
