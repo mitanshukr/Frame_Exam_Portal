@@ -1,65 +1,37 @@
 import React from "react";
-import { FormGroup, FormControlLabel, Switch } from "@material-ui/core";
+
 import Card from "../../UI/Card";
+import ExamValidity from "./ExamValidity";
+import HighlightedInput from "./HighlightedInput";
+import SwitchGroup from "./SwitchGroup";
 
 const GeneralInfo = () => {
-  const [state, setState] = React.useState({
-    webcam: true,
-    mic: false,
-  });
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
-
   return (
-    <Card title="General Info">
-      <div>Exam Duration: 180mins</div>
-      <div>
-        Exam Validity:
-        <div>Start: 13-Aug-21 16:00 IST</div>
-        <div>End: 14-Aug-21 16:00 IST</div>
-      </div>
-      <div>No. of Allowed Attempts: 1</div>
+    <Card
+      title="General Info"
+      style={{
+        fontSize: "14px",
+        height: "355px",
+      }}
+    >
+      <HighlightedInput
+        title="Change Exam Duration"
+        name="ExamDuration"
+        value="180"
+        label="Exam Duration: "
+        suffix=" mins"
+        width="28px"
+      />
+      <HighlightedInput
+        title="Change Value"
+        name="allowedAttempts"
+        value="1"
+        label="No. of Attempts Allowed: "
+        width="18px"
+      />
+      <ExamValidity />
       <hr />
-      <FormGroup>
-        <FormControlLabel
-          //   className={classes.deviceAccess__switch}
-          control={
-            <Switch
-              size="small"
-              checked={state.webcam}
-              onChange={handleChange}
-              name="webcam"
-            />
-          }
-          label="Shuffle Questions"
-        />
-        <FormControlLabel
-          //   className={classes.deviceAccess__switch}
-          control={
-            <Switch
-              size="small"
-              checked={state.mic}
-              onChange={handleChange}
-              name="mic"
-            />
-          }
-          label="Shuffle Options"
-        />
-        <FormControlLabel
-          //   className={classes.deviceAccess__switch}
-          control={
-            <Switch
-              size="small"
-              checked={state.mic}
-              onChange={handleChange}
-              name="mic"
-            />
-          }
-          label="Show Result"
-        />
-      </FormGroup>
+      <SwitchGroup />
     </Card>
   );
 };
