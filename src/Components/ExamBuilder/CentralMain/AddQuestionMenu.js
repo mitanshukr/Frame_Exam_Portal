@@ -1,5 +1,5 @@
 import React from "react";
-import { Menu, MenuItem } from "@material-ui/core";
+import { makeStyles, Menu, MenuItem } from "@material-ui/core";
 
 import NestedMenuItem from "material-ui-nested-menu-item";
 
@@ -8,9 +8,23 @@ const initialState = {
   mouseY: null,
 };
 
+const useStyles = makeStyles((theme) => ({
+  menuRoot: {
+    "& li": {
+      fontSize: "15px !important",
+    },
+  },
+  nestedMenuRoot: {
+    "& > li": {
+      fontSize: "15px !important",
+    },
+  },
+}));
+
 const AddQuestionMenu = (props) => {
   const [state, setState] = React.useState(initialState);
   const elemId = "simple-menu-" + Math.random();
+  const classes = useStyles();
 
   const handleClick = (event) => {
     event.preventDefault();
@@ -20,7 +34,7 @@ const AddQuestionMenu = (props) => {
     });
   };
 
-  const handleClose = () => {
+  const handleClose = (event) => {
     setState(initialState);
   };
 
@@ -28,8 +42,12 @@ const AddQuestionMenu = (props) => {
     <div aria-controls={elemId} aria-haspopup="true">
       <span onClick={handleClick}>{props.children}</span>
       <Menu
+        MenuListProps={{
+          classes: {
+            root: classes.menuRoot,
+          },
+        }}
         id={elemId}
-        keepMounted
         open={state.mouseY !== null}
         onClose={handleClose}
         anchorReference="anchorPosition"
@@ -40,9 +58,14 @@ const AddQuestionMenu = (props) => {
         }
       >
         <NestedMenuItem
-          keepMounted
+          MenuListProps={{
+            classes: {
+              root: classes.nestedMenuRoot,
+            },
+          }}
           label="MCQ Type"
-          parentMenuOpen={!!state.mouseX}
+          parentMenuOpen={state.mouseY !== null}
+          // onClick={handleClose}
         >
           <MenuItem onClick={handleClose}>Single Correct</MenuItem>
           <MenuItem onClick={handleClose}>Multiple Correct</MenuItem>
