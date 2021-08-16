@@ -2,7 +2,7 @@ import { Button, makeStyles, Tooltip } from "@material-ui/core";
 import classes from "./BuilderMenu.module.css";
 import AddIcon from "@material-ui/icons/Add";
 import SaveOutlinedIcon from "@material-ui/icons/SaveOutlined";
-import CustomButton from "../../UI/CustomButton";
+import MaterialButton from "../../UI/MaterialButton";
 import EditIcon from "@material-ui/icons/Edit";
 
 const useStyles = makeStyles((theme) => ({
@@ -40,14 +40,14 @@ const BuilderMenu = () => {
         <a href="#">
           <small>Saving...</small>
         </a>
-        <CustomButton>
+        <MaterialButton>
           <SaveOutlinedIcon className={styles.iconSave} />
           Save and Close
-        </CustomButton>
-        <CustomButton>
+        </MaterialButton>
+        <MaterialButton>
           <AddIcon className={styles.iconAdd} />
           Create
-        </CustomButton>
+        </MaterialButton>
       </div>
     </div>
   );

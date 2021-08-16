@@ -16,6 +16,7 @@ const GetHelp = (props) => {
       <span
         style={{
           padding: 0,
+          fontFamily: "'STIX Two Text', serif",
           paddingLeft: "8px",
           fontSize: "19px",
           marginTop: "2px",

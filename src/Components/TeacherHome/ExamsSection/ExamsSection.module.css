@@ -1,0 +1,22 @@
+.exams {
+  box-sizing: border-box;
+  padding: 60px;
+}
+
+.exams__cyfe {
+  margin: 0;
+  padding-right: 50px;
+  padding-left: 50px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.exams__cyfe:hover {
+  box-shadow: 0 2px 8px 2px rgb(28 29 31 / 15%);
+}
+
+.exams__cyfe > div {
+  margin-right: auto;
+}

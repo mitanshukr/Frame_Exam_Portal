@@ -1,7 +1,5 @@
 .contentBody {
-    /* border: 1px solid grey; */
-    width: 100%;
+    width: inherit;
     margin-left: 55px;
     box-sizing: border-box;
-    text-align: center;
 }
