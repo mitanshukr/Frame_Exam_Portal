@@ -1,9 +1,9 @@
-import PersonOutlinedIcon from "@material-ui/icons/PersonOutlined";
+import HourglassFullOutlinedIcon from "@material-ui/icons/HourglassFullOutlined";
 import AssignmentOutlinedIcon from "@material-ui/icons/AssignmentOutlined";
 import BookmarkBorderOutlinedIcon from "@material-ui/icons/BookmarkBorderOutlined";
 import EqualizerOutlinedIcon from "@material-ui/icons/EqualizerOutlined";
+import PeopleAltOutlinedIcon from "@material-ui/icons/PeopleAltOutlined";
 import HelpOutlineOutlinedIcon from "@material-ui/icons/HelpOutlineOutlined";
-import HourglassFullOutlinedIcon from "@material-ui/icons/HourglassFullOutlined";
 
 import classes from "./Sidebar.module.css";
 import { makeStyles } from "@material-ui/core";
@@ -40,7 +40,7 @@ const Sidebar = (props) => {
         <EqualizerOutlinedIcon className={styles.iconRoot} />
       </a>
       <a href="#">
-        <PersonOutlinedIcon className={styles.iconRoot} />
+        <PeopleAltOutlinedIcon className={styles.iconRoot} />
       </a>
       <a href="#">
         <HelpOutlineOutlinedIcon className={styles.iconRoot} />
