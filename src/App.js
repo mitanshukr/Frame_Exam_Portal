@@ -1,11 +1,13 @@
 import ExamBuilder from "./Components/ExamBuilder/ExamBuilder";
 import Header from "./Components/Header/Header";
+import TeacherHome from "./Components/TeacherHome/TeacherHome";
 
 function App() {
   return (
     <div>
       <Header />
-      <ExamBuilder />
+      <TeacherHome />
+      {/* <ExamBuilder /> */}
     </div>
   );
 }
