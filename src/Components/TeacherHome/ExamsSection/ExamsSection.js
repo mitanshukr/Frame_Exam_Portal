@@ -25,6 +25,12 @@ const ExamsSection = (props) => {
           Create Your First Exam
         </Button>
       </Card>
+      <div className={classes.exams__resources}>
+      <p>Here are some resources, which may help you to get started.</p>
+      <Card className={classes['exams__resources--card']}>
+          Resource content here
+      </Card>
+      </div>
     </div>
   );
 };

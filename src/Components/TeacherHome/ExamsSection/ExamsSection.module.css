@@ -20,3 +20,21 @@
 .exams__cyfe > div {
   margin-right: auto;
 }
+
+.exams__resources {
+}
+
+.exams__resources > p {
+  text-align: center;
+  padding: 55px 0;
+}
+
+.exams__resources--card {
+  height: 150px;
+  text-align: center;
+  color: grey;
+}
+
+.exams__resources--card:hover {
+  box-shadow: 0 2px 8px 2px rgb(28 29 31 / 15%);
+}
