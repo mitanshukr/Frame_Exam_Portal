@@ -9,34 +9,57 @@
   flex-direction: column;
   background-color: #2c2926;
   box-shadow: 1px 1px 8px 1px rgba(0, 0, 0, 0.246);
-  transition: all 0.5s ease-in-out;
+  transition: width 0.5s ease-in-out;
 }
 
-.sidebar:hover {
-  width: 250px;
+.sidebarHover {
+  width: 260px;
 }
 
 .sidebar > a {
   display: flex;
+  align-items: center;
+  justify-content: stretch;
   box-sizing: border-box;
   position: relative;
-  width: 100%;
+  text-decoration: none;
+  /* background-color: #494642; */
 }
 
-.sidebar > a:hover {
-  background-color: #494642;
-}
-
-.active {
+.sidebar > a:hover,
+a:focus {
   background-color: #494642;
 }
 
 .active::before {
   content: "";
-  background-color: rgb(255, 232, 101);
+  background-color: rgb(252, 224, 69);
   height: 100%;
-  width: 4px;
+  width: 3.5px;
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.navLinkName {
+  justify-self: stretch;
+  color: white;
+  padding-left: 25px;
+  min-width: max-content;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.navLinkName__visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.navLogo {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding-left: 2px;
+  color: rgb(252, 224, 69);
+  font-weight: bold;
+  font-size: 25px;
 }
