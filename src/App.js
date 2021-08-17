@@ -6,6 +6,7 @@ import TeacherHome from "./Components/TeacherHome/TeacherHome";
 function App() {
   return (
     <>
+      {/* urlPathname={window.location.pathname}  */}
       <Header />
       <Route path="/teacher">
         <TeacherHome />

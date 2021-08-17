@@ -1,0 +1,20 @@
+.drafts {
+  position: relative;
+}
+
+.drafts__svgImg {
+  text-align: center;
+  padding-top: 5px;
+}
+.drafts__svgImg > svg {
+  width: 360px;
+  height: 360px;
+}
+
+.drafts__svgImg--p {
+  text-align: center;
+  font-family: "STIX Two Text", serif;
+  color: #2c292688;
+  font-style: italic;
+  font-size: 19px;
+}

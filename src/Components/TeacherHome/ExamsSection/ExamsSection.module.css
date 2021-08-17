@@ -1,10 +1,10 @@
 .exams {
   box-sizing: border-box;
-  padding: 60px;
 }
 
 .exams__cyfe {
   margin: 0;
+  margin-top: 60px;
   padding-right: 50px;
   padding-left: 50px;
   height: 120px;

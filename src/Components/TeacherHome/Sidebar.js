@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   logoRoot: {
     fontSize: 30,
     padding: "18px 0 18px 13px",
-    color: "rgb(252, 224, 69);",
+    color: "rgb(252, 224, 69)",
   },
 }));
 
@@ -62,7 +62,7 @@ const Sidebar = (props) => {
         <span className={navLinkNameStyle}>Exams</span>
       </NavLink>
       <NavLink
-        to="/teacher/draft"
+        to="/teacher/drafts"
         onMouseEnter={hoverHandler.bind(this, "ENTER")}
         onMouseDown={hoverHandler.bind(this, "LEAVE")}
         activeClassName={classes.active}

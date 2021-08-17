@@ -78,7 +78,7 @@ const PasswordAccess = () => {
         label="Require Password?"
       />
 
-      <FormControl autocomplete="off">
+      <FormControl autoComplete="off">
         <InputLabel
           className={classes.labelRoot}
           htmlFor="standard-adornment-password"

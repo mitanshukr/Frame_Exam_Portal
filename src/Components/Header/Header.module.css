@@ -1,12 +1,15 @@
-.header{
-    /* background-color: rgb(49, 53, 53); */
-    border-bottom: 1px dotted rgb(230, 230, 230);
-    height: 65px;
-    margin: 0;
-    padding: 0 30px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-
+.header {
+  /* background-color: rgb(49, 53, 53); */
+  /* border-bottom: 1px dotted rgb(230, 230, 230); */
+  height: 65px;
+  margin: 0;
+  padding: 0 30px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
+
+/* .blackHeader {
+  background-color: rgb(49, 53, 53);
+} */

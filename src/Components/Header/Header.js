@@ -15,8 +15,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = () => {
+const Header = (props) => {
   const styles = useStyles();
+
+  // const headerStyle = `${classes.header} ${
+  //   props.urlPathname === "/create-exam" ? classes.blackHeader : ""
+  // }`;
   return (
     <header className={classes.header}>
       {/* Company Logo */}

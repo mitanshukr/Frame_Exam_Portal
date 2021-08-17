@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     textTransform: "capitalize",
     fontFamily: "inherit",
+    backgroundColor: "#6C63FF",
   },
 }));
 
