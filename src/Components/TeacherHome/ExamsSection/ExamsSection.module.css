@@ -13,9 +13,9 @@
   align-items: center;
 }
 
-.exams__cyfe:hover {
+/* .exams__cyfe:hover {
   box-shadow: 0 2px 8px 2px rgb(28 29 31 / 15%);
-}
+} */
 
 .exams__cyfe > div {
   margin-right: auto;

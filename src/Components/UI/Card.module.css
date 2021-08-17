@@ -7,6 +7,10 @@
   background-color: white;
 }
 
+.card:hover {
+  box-shadow: 0 2px 8px 2px rgb(28 29 31 / 15%);
+}
+
 .card__title {
   margin: 0;
   margin-bottom: 10px;

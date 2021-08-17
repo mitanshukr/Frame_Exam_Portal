@@ -1,12 +1,7 @@
 import classes from "./ContentBody.module.css";
-import ExamsSection from "./ExamsSection/ExamsSection";
 
 const ContentBody = (props) => {
-  return (
-    <div className={classes.contentBody}>
-      <ExamsSection />
-    </div>
-  );
+  return <div className={classes.contentBody}>{props.children}</div>;
 };
 
 export default ContentBody;

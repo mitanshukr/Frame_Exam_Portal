@@ -7,6 +7,7 @@ import HelpOutlineOutlinedIcon from "@material-ui/icons/HelpOutlineOutlined";
 
 import classes from "./Sidebar.module.css";
 import { makeStyles } from "@material-ui/core";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   iconRoot: {
@@ -25,26 +26,26 @@ const Sidebar = (props) => {
 
   return (
     <div className={classes.sidebar}>
-      <a href="#" class="active">
+      <NavLink to="/">
         <HourglassFullOutlinedIcon
           className={`${styles.iconRoot} ${styles.logoRoot}`}
         />
-      </a>
-      <a href="#">
+      </NavLink>
+      <NavLink to="/teacher/exams" activeClassName={classes.active}>
         <AssignmentOutlinedIcon className={styles.iconRoot} />
-      </a>
-      <a href="#">
+      </NavLink>
+      <NavLink to="/teacher/draft" activeClassName={classes.active}>
         <BookmarkBorderOutlinedIcon className={styles.iconRoot} />
-      </a>
-      <a href="#">
+      </NavLink>
+      <NavLink to="/teacher/stats" activeClassName={classes.active}>
         <EqualizerOutlinedIcon className={styles.iconRoot} />
-      </a>
-      <a href="#">
+      </NavLink>
+      <NavLink to="/teacher/groups" activeClassName={classes.active}>
         <PeopleAltOutlinedIcon className={styles.iconRoot} />
-      </a>
-      <a href="#">
+      </NavLink>
+      <NavLink to="/teacher/get-help" activeClassName={classes.active}>
         <HelpOutlineOutlinedIcon className={styles.iconRoot} />
-      </a>
+      </NavLink>
     </div>
   );
 };

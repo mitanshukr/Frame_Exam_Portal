@@ -27,7 +27,11 @@
   background-color: #494642;
 }
 
-.sidebar > a:active::before {
+.active {
+  background-color: #494642;
+}
+
+.active::before {
   content: "";
   background-color: rgb(255, 232, 101);
   height: 100%;
