@@ -12,6 +12,8 @@ const GeneralInfo = () => {
       style={{
         fontSize: "14px",
         height: "355px",
+        position: "sticky",
+        top: "80px",
       }}
     >
       <HighlightedInput

@@ -1,45 +1,89 @@
-import { Avatar, Badge, makeStyles } from "@material-ui/core";
+import { Avatar, Badge, makeStyles, Tooltip } from "@material-ui/core";
 import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
+import HourglassFullOutlinedIcon from "@material-ui/icons/HourglassFullOutlined";
+import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import classes from "./Header.module.css";
 
 const useStyles = makeStyles((theme) => ({
   avatarIcon: {
-    marginLeft: 25,
-    backgroundColor: "#2c2926",
-    fontSize: 16,
-    width: 46,
-    height: 46,
+    margin: "0 12px",
+    marginLeft: 22,
+    backgroundColor: "#727171",
+    fontSize: 14,
+    width: 40,
+    height: 40,
+    cursor: "pointer",
   },
-  notificationIcon: {
-    color: "#2c2926",
+  actionIcon: {
+    // color: "#2c2926",
+    // margin: "0 8px",
+    color: "white",
+    marginLeft: 14,
+    fontSize: 26,
+    cursor: "pointer",
+  },
+  logoRoot: {
+    fontSize: 30,
+    color: "rgb(252, 224, 69)",
+  },
+  blackIcon: {
+    color: "rgb(49, 53, 53)",
+  },
+  blackBGC: {
+    backgroundColor: "rgb(49, 53, 53)",
   },
 }));
 
 const Header = (props) => {
   const styles = useStyles();
 
-  // const headerStyle = `${classes.header} ${
-  //   props.urlPathname === "/create-exam" ? classes.blackHeader : ""
-  // }`;
+  const blackHeader = window.location.pathname === "/create-exam";
+
+  const headerStyle = `${classes.header} ${
+    blackHeader ? classes.blackHeader : ""
+  }`;
   return (
-    <header className={classes.header}>
-      {/* Company Logo */}
+    <header className={headerStyle}>
+      <div className={classes.header__logo}>
+        {blackHeader && (
+          <Tooltip title="Frame Logo Home">
+            <a href="/teacher">
+              <HourglassFullOutlinedIcon className={styles.logoRoot} />
+              <h1>Frame</h1>
+            </a>
+          </Tooltip>
+        )}
+      </div>
+
       {/* Some other options, if required */}
 
-      <Badge
-        className={styles.notificationIcon}
-        badgeContent={2}
-        color="primary"
-      >
-        <NotificationsNoneIcon />
-      </Badge>
-      <Avatar
-        alt="Mitanshu Kumar"
-        src="/broken-image.jpg"
-        className={styles.avatarIcon}
-      >
-        MK
-      </Avatar>
+      <div className={classes.header__actions}>
+        <Tooltip title="Home">
+          <HomeOutlinedIcon
+            className={`${styles.actionIcon} ${
+              !blackHeader ? styles.blackIcon : ""
+            }`}
+          />
+        </Tooltip>
+        <Tooltip title="Notifications (2)">
+          <Badge badgeContent={2} color="primary">
+            <NotificationsNoneIcon
+              className={`${styles.actionIcon} ${
+                !blackHeader ? styles.blackIcon : ""
+              }`}
+            />
+          </Badge>
+        </Tooltip>
+        <Avatar
+          alt="Mitanshu Kumar"
+          src="/broken-image.jpg"
+          className={`${styles.avatarIcon} ${
+            !blackHeader ? styles.blackBGC : ""
+          }`}
+        >
+          MK
+        </Avatar>
+      </div>
     </header>
   );
 };

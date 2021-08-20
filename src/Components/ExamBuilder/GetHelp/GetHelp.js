@@ -10,6 +10,7 @@ const GetHelp = (props) => {
         paddingTop: "19px",
         display: "flex",
         alignItems: "center",
+        position: "sticky", top: "363px"
       }}
     >
       <HelpOutlineOutlinedIcon style={{ color: "rgb(75, 75, 75)" }} />

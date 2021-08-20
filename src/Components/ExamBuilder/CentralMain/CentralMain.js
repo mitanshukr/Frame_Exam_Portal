@@ -7,14 +7,14 @@ const CentralMain = () => {
     <Card
       style={{
         flex: 1,
-        height: "500px",
+        height: "1000px",
         position: "relative",
         paddingTop: "65px",
       }}
     >
       <CentralMenu />
-      {/* Added Questions */}
       <AddQuestionCard />
+      {/* Added Questions */}
     </Card>
   );
 };

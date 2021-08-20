@@ -7,12 +7,11 @@
   box-sizing: border-box;
   height: 60px;
   box-shadow: 1px 4px 5px 1px rgba(0, 0, 0, 0.246);
-  background-color: #2C2926;
+  background-color: #2c2926;
   color: white;
-  /* position: fixed;
-    top: 0;
-    left: 0; */
-   /* text-align: right; */
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .exambuilder__name {

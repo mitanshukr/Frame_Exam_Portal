@@ -6,12 +6,13 @@ import TeacherHome from "./Components/TeacherHome/TeacherHome";
 function App() {
   return (
     <>
-      {/* urlPathname={window.location.pathname}  */}
-      <Header />
+      {/* <Header blackStyle={isBlackHeader}/> */}
       <Route path="/teacher">
+        <Header />
         <TeacherHome />
       </Route>
       <Route path="/create-exam">
+        <Header />
         <ExamBuilder />
       </Route>
     </>

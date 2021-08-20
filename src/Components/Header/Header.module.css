@@ -1,15 +1,36 @@
 .header {
   /* background-color: rgb(49, 53, 53); */
   /* border-bottom: 1px dotted rgb(230, 230, 230); */
-  height: 65px;
+  height: 55px;
   margin: 0;
-  padding: 0 30px;
+  padding: 0 20px;
   box-sizing: border-box;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__logo > a {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+.header__logo > a > h1 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  padding-left: 2px;
+  color: rgb(252, 224, 69);
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.header__actions {
+  display: flex;
   align-items: center;
 }
 
-/* .blackHeader {
+.blackHeader {
   background-color: rgb(49, 53, 53);
-} */
+}
