@@ -1,0 +1,17 @@
+.logo a,
+.logo a:focus {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.logo > a > h1 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  padding-left: 2px;
+  color: rgb(252, 224, 69);
+  font-weight: bold;
+  font-size: 30px;
+}

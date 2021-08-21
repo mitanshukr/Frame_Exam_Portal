@@ -3,6 +3,7 @@ import NotificationsNoneIcon from "@material-ui/icons/NotificationsNone";
 import HourglassFullOutlinedIcon from "@material-ui/icons/HourglassFullOutlined";
 import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 import classes from "./Header.module.css";
+import MainLogo from "../UI/MainLogo";
 
 const useStyles = makeStyles((theme) => ({
   avatarIcon: {
@@ -22,10 +23,6 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 26,
     cursor: "pointer",
   },
-  logoRoot: {
-    fontSize: 30,
-    color: "rgb(252, 224, 69)",
-  },
   blackIcon: {
     color: "rgb(49, 53, 53)",
   },
@@ -44,17 +41,7 @@ const Header = (props) => {
   }`;
   return (
     <header className={headerStyle}>
-      <div className={classes.header__logo}>
-        {blackHeader && (
-          <Tooltip title="Frame Logo Home">
-            <a href="/teacher">
-              <HourglassFullOutlinedIcon className={styles.logoRoot} />
-              <h1>Frame</h1>
-            </a>
-          </Tooltip>
-        )}
-      </div>
-
+      <div>{blackHeader && <MainLogo />}</div>
       {/* Some other options, if required */}
 
       <div className={classes.header__actions}>

@@ -1,4 +1,5 @@
 import { Route } from "react-router-dom";
+import Login from "./Components/Auth/Login";
 import ExamBuilder from "./Components/ExamBuilder/ExamBuilder";
 import Header from "./Components/Header/Header";
 import TeacherHome from "./Components/TeacherHome/TeacherHome";
@@ -6,7 +7,9 @@ import TeacherHome from "./Components/TeacherHome/TeacherHome";
 function App() {
   return (
     <>
-      {/* <Header blackStyle={isBlackHeader}/> */}
+      <Route path="/login">
+        <Login />
+      </Route>
       <Route path="/teacher">
         <Header />
         <TeacherHome />

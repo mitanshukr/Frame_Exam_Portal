@@ -58,7 +58,8 @@ a:focus {
 }
 
 .navLogo {
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
   padding-left: 2px;
   color: rgb(252, 224, 69);
   font-weight: bold;
