@@ -11,6 +11,8 @@ import { Visibility, VisibilityOff } from "@material-ui/icons";
 import HourglassFullOutlinedIcon from "@material-ui/icons/HourglassFullOutlined";
 
 import classes from "./Login.module.css";
+import { useDispatch } from "react-redux";
+import { authActions } from "../../Store";
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -53,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
 const Login = (props) => {
   const styles = useStyles();
   const history = useHistory();
+  const dispatch = useDispatch();
   const [passwordState, setPasswordState] = React.useState({
     password: "",
     showPassword: false,
@@ -76,7 +79,9 @@ const Login = (props) => {
   const loginHandler = (e) => {
     //check username/password...log in the user
     //then navidate to teacher home
+    dispatch(authActions.login());
     history.push("/teacher");
+
   }
 
   return (
