@@ -1,31 +1,22 @@
-import React, { Fragment } from "react";
+import React from "react";
 import FormGroup from "@material-ui/core/FormGroup";
 
 import MaterialSwitch from "../../UI/MaterialSwitch";
 
-const DeviceAccess = () => {
-  const [state, setState] = React.useState({
-    webcam: true,
-    mic: false,
-  });
-
-  const handleChange = (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
-  };
-
+const DeviceAccess = (props) => {
   return (
     <FormGroup>
       <MaterialSwitch
         size="small"
-        checked={state.webcam}
-        onChange={handleChange}
+        checked={props.webcam}
+        onChange={(e) => props.onChange(e)}
         name="webcam"
         label="Require Webcam"
       />
       <MaterialSwitch
         size="small"
-        checked={state.mic}
-        onChange={handleChange}
+        checked={props.mic}
+        onChange={(e) => props.onChange(e)}
         name="mic"
         label="Require Microphone"
       />

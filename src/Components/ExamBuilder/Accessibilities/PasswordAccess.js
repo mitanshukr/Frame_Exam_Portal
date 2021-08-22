@@ -20,10 +20,9 @@ const useStyles = makeStyles((theme) => ({
   },
   inputRoot: {
     fontSize: 16,
-    // marginTop: "2px !important",
     padding: 0,
     letterSpacing: 12,
-    width: "150px",
+    width: "140px",
   },
   labelRoot: {
     fontSize: 11,
@@ -32,23 +31,33 @@ const useStyles = makeStyles((theme) => ({
   },
   viewPasswordIcon: {
     transform: "scale(0.9)",
-    margin: 0,
-    padding: 0,
+    background: "transparent",
+    margin: "-20px",
+  },
+  errorMsg: {
+    color: "red",
+    fontSize: 10,
+    paddingTop: 5,
   },
 }));
 
-const PasswordAccess = () => {
-  const classes = useStyles();
-
+const PasswordAccess = (props) => {
+  const styles = useStyles();
   const [passwordProtection, setPasswordProtection] = React.useState(false);
-
   const [values, setValues] = React.useState({
     password: "",
     showPassword: false,
+    passwordError: false,
   });
 
   const handleCheckboxChange = (event) => {
     setPasswordProtection(event.target.checked);
+    setValues({ ...values, passwordError: true });
+    props.setPassword(true, null);
+    if (!event.target.checked) {
+      setValues({ password: "", showPassword: false, passwordError: false });
+      props.setPassword(false, null);
+    }
   };
 
   const handleClickShowPassword = () => {
@@ -60,13 +69,23 @@ const PasswordAccess = () => {
   };
 
   const handlePasswordChange = (event) => {
-    setValues({ ...values, password: event.target.value });
+    const password = event.target.value;
+    if (password.length > 6 || isNaN(password)) {
+      // alert("Only digits of max length 6 is allowed.");
+      return;
+    }
+    if (password.length < 6) {
+      setValues({ ...values, password: password, passwordError: true });
+    } else {
+      setValues({ ...values, password: password, passwordError: false });
+    }
+    props.setPassword(true, password);
   };
 
   return (
     <FormGroup>
       <FormControlLabel
-        className={classes.passwordCheckbox}
+        className={styles.passwordCheckbox}
         control={
           <Checkbox
             size="small"
@@ -80,22 +99,27 @@ const PasswordAccess = () => {
 
       <FormControl autoComplete="off">
         <InputLabel
-          className={classes.labelRoot}
+          className={styles.labelRoot}
           htmlFor="standard-adornment-password"
         >
           Enter 6-digit Password
         </InputLabel>
         <Input
+          disabled={!passwordProtection}
           placeholder="******"
-          className={classes.inputRoot}
+          className={styles.inputRoot}
+          error={values.passwordError}
           id="standard-adornment-password"
+          inputProps={{
+            maxLength: 6,
+          }}
           type={values.showPassword ? "text" : "password"}
           value={values.password}
           onChange={handlePasswordChange}
           endAdornment={
             <InputAdornment position="end">
               <IconButton
-                className={classes.viewPasswordIcon}
+                className={styles.viewPasswordIcon}
                 aria-label="toggle password visibility"
                 onClick={handleClickShowPassword}
                 onMouseDown={handleMouseDownPassword}
@@ -106,6 +130,11 @@ const PasswordAccess = () => {
           }
         />
       </FormControl>
+      {values.passwordError && (
+        <small className={styles.errorMsg}>
+          Please provide a 6 digit Password.
+        </small>
+      )}
     </FormGroup>
   );
 };
