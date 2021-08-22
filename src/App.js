@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import Login from "./Components/Auth/Login";
 import ExamBuilder from "./Components/ExamBuilder/ExamBuilder";
 import Header from "./Components/Header/Header";
@@ -7,10 +7,14 @@ import TeacherHome from "./Components/TeacherHome/TeacherHome";
 
 function App() {
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
+
   return (
     <>
       {isAuth ? (
         <Switch>
+          <Route path="/" exact>
+            <Redirect to="/teacher" />
+          </Route>
           <Route path="/teacher">
             <Header />
             <TeacherHome />
@@ -24,6 +28,9 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <Login />
+          </Route>
+          <Route path="/teacher">
+            <Redirect to="/" />
           </Route>
         </Switch>
       )}

@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useReducer } from "react";
 import Accessibilities from "./Accessibilities/Accessibilities";
 import BuilderMenu from "./BuilderMenu/BuilderMenu";
 import GeneralInfo from "./GeneralInfo/GeneralInfo";
@@ -7,14 +7,24 @@ import classes from "./ExamBuilder.module.css";
 import CentralMain from "./CentralMain/CentralMain";
 import GetHelp from "./GetHelp/GetHelp";
 
+const defaultExamData = {
+
+}
+
+const examDataReducer = (state, action) => {
+  
+}
+
 const ExamBuilder = () => {
+  const [examData, dispatchExamData] = useReducer(examDataReducer, defaultExamData);
+
   return (
     <Fragment>
       <BuilderMenu />
       <main className={classes.main}>
         <div>
-        <Accessibilities />
-        <GetHelp />
+          <Accessibilities />
+          <GetHelp />
         </div>
         <CentralMain />
         <GeneralInfo />

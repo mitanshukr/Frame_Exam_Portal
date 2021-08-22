@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useHistory } from "react-router-dom";
 import {
   Button,
@@ -13,6 +13,7 @@ import HourglassFullOutlinedIcon from "@material-ui/icons/HourglassFullOutlined"
 import classes from "./Login.module.css";
 import { useDispatch } from "react-redux";
 import { authActions } from "../../Store";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   margin: {
@@ -56,6 +57,8 @@ const Login = (props) => {
   const styles = useStyles();
   const history = useHistory();
   const dispatch = useDispatch();
+  const emailRef = useRef();
+  const passwordRef = useRef();
   const [passwordState, setPasswordState] = React.useState({
     password: "",
     showPassword: false,
@@ -77,12 +80,23 @@ const Login = (props) => {
   };
 
   const loginHandler = (e) => {
-    //check username/password...log in the user
-    //then navidate to teacher home
-    dispatch(authActions.login());
-    history.push("/teacher");
+    axios
+      .post("http://localhost:8000/auth/teacher/login", {
+        email: emailRef.current.value,
+        password: passwordRef.current.value,
+      })
+      .then((response) => {
+        dispatch(authActions.login(response.data));
+        history.push("/teacher");
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
 
-  }
+    //then navidate to teacher home
+    // dispatch(authActions.login());
+    // 
+  };
 
   return (
     <div className={classes.login}>
@@ -106,6 +120,7 @@ const Login = (props) => {
             className={styles.inputRoot}
             inputProps={{
               "aria-label": "description",
+              ref: emailRef,
             }}
           />
 
@@ -116,6 +131,9 @@ const Login = (props) => {
             type={passwordState.showPassword ? "text" : "password"}
             value={passwordState.password}
             onChange={passwordChangeHandler}
+            inputProps={{
+              ref: passwordRef,
+            }}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton
